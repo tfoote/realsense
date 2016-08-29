@@ -4,9 +4,6 @@
     <arg name="manager" /> <!-- Name of nodelet manager must be fully resolved -->
     <arg name="camera"              default="camera" />
     <arg name="publish_tf"          default="true" />
-    <arg name="depth"               default="depth" />
-    <arg name="rgb"                 default="rgb" />
-    <arg name="ir"                  default="ir" />
     <arg name="depth_processing"    default="" />
     <arg name="rgb_processing"      default="" />
     <arg name="ir_processing"       default="" />
@@ -23,7 +20,6 @@
     <arg name="color_height"        default="" />
     <arg name="depth_fps"           default="" />
     <arg name="color_fps"           default="" />
-    <arg name="ir2"                 default="ir2" />
 
     <!-- "enable_depth" will take the value of "ir_processing" only if "ir_processing" is true.
          Else "enable_depth" will take the value of "depth_processing" -->
@@ -58,15 +54,5 @@
         <param name="color_optical_frame_id"  type="str"  value="$(arg camera)_$(arg rgb)_optical_frame" />
         <param name="ir_frame_id"             type="str"  value="$(arg camera)_$(arg ir)_frame" />
         <param name="ir2_frame_id"            type="str"  value="$(arg camera)_$(arg ir2)_frame" />
-
-        <remap from="camera/depth/image_raw"        to="$(arg depth)/image_raw" />
-        <remap from="camera/color/image_raw"        to="$(arg rgb)/image_raw" />
-        <remap from="camera/ir/image_raw"           to="$(arg ir)/image_raw" />
-        <remap from="camera/ir2/image_raw"          to="$(arg ir2)/image_raw" />
-        <remap from="camera/depth/points"           to="$(arg depth)/points" />
-        <remap from="camera/depth/camera_info"      to="$(arg depth)/camera_info" />
-        <remap from="camera/color/camera_info"      to="$(arg rgb)/camera_info" />
-        <remap from="camera/ir/camera_info"         to="$(arg ir)/camera_info" />
-        <remap from="camera/ir2/camera_info"        to="$(arg ir2)/camera_info" />
     </node>
 </launch>
