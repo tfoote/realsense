@@ -253,7 +253,7 @@ namespace realsense_camera
     ros::NodeHandle depth_nh(nh_, DEPTH_NAMESPACE);
     image_transport::ImageTransport depth_image_transport(depth_nh);
     camera_publisher_[RS_STREAM_DEPTH] = depth_image_transport.advertiseCamera(DEPTH_TOPIC, 1);
-    pointcloud_publisher_ = depth_nh_.advertise<sensor_msgs::PointCloud2>(PC_TOPIC, 1);
+    pointcloud_publisher_ = depth_nh.advertise<sensor_msgs::PointCloud2>(PC_TOPIC, 1);
 
     ros::NodeHandle ir_nh(nh_, IR_NAMESPACE);
     image_transport::ImageTransport ir_image_transport(ir_nh);
